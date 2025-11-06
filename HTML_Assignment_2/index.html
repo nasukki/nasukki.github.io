@@ -6,8 +6,9 @@
     <meta charset="UTF-8">
     <title>Apply for a job - Crazy Fridays inc.</title>
     <style>
+        /* --- page layout --- */
         body {
-            font-family: Arial;
+            font-family: Arial, sans-serif;
             background: #f5f5f5;
             margin: 0;
             padding: 0;
@@ -20,11 +21,13 @@
         aside,
         footer {
             padding: 10px;
-            margin: 10px;
+            margin: 10px;            /* consistent outer margins for all sections */
             background: #fff;
             border-radius: 5px;
+            box-sizing: border-box;
         }
 
+        /* header / nav / footer styling (unchanged) */
         header {
             background: #2c3e50;
             color: #fff;
@@ -35,50 +38,102 @@
             text-decoration: none;
             color: #2c3e50;
         }
-        input,
-        select,
-        textarea {
-            margin-top: 8px;
-            margin-bottom: 15px;
-            padding: 0px;
-            width: 100%;
-            max-width: 500px;
-        }
-
-        label {
-            display: block;
-            margin-top: 10px;
-        }
 
         footer {
             font-size: 0.8em;
             text-align: center;
             color: #555;
         }
-        #employment-type input[type="radio"],
-        #job-preferences input[type="checkbox"] {
-            padding: 10px;
+
+        /* --- form area --- */
+        .form-section {
+            background: #ecf0f1;
+            padding: 15px;
+            margin: 10px; /* explicit margin so it lines up with other sections */
+        }
+
+        /* Make labels for normal fields stack */
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        /* Only apply full-width to text-like controls (not radios/checkboxes/submit) */
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="number"],
+        input[type="range"],
+        input[list],
+        select,
+        textarea {
+            margin-top: 8px;
+            margin-bottom: 15px;
+            padding: 6px 8px;
+            width: 100%;
+            max-width: 500px;
+            box-sizing: border-box;
+        }
+
+        /* Keep submits and range controls sane */
+        input[type="submit"] {
             width: auto;
-            margin-right: 6px;
+            padding: 8px 14px;
+            margin-top: 8px;
+            cursor: pointer;
+        }
+
+        /* -------------------------------------
+           Radio / Checkbox group specific styles
+           Scoped to the sections so other labels
+           are unaffected by these rules.
+           ------------------------------------- */
+        #employment-type,
+        #job-preferences {
+            margin-top: 8px;
+            margin-bottom: 12px;
+        }
+
+        /* Each option is a label that contains the input and text,
+           so clicking the text toggles the input. We use inline-flex
+           to vertically center the input and the text. */
+        #employment-type .option,
+        #job-preferences .option {
+            display: inline-flex;
+            align-items: center;
+            gap: .4rem;           /* space between input and text */
+            margin-right: 16px;   /* horizontal spacing between options */
+            margin-top: 6px;
+            vertical-align: middle;
+            cursor: pointer;      /* indicates clickable */
+        }
+
+        /* ensure the actual inputs are not stretched */
+        #employment-type .option input[type="radio"],
+        #job-preferences .option input[type="checkbox"] {
+            width: auto;
+            height: auto;
+            margin: 0;
             vertical-align: middle;
         }
 
-        #employment-type label,
-        #job-preferences label {
-            padding: 10px;
-            display: inline-block;
-            margin-right: 15px;
-            margin-top: 0;
-            vertical-align: middle;
-        }
-
+        /* small adjustment for the group heading line spacing */
         #employment-type p,
         #job-preferences p {
-            padding: 10px;
-            margin-bottom: 6px;
+            margin: 0 0 6px 0;
+            font-weight: 600;
+        }
+
+        /* small responsive tweak: stack options on narrow screens */
+        @media (max-width: 420px) {
+            #employment-type .option,
+            #job-preferences .option {
+                display: flex;
+                width: 100%;
+                margin-right: 0;
+            }
         }
     </style>
-
 </head>
 
 <body>
@@ -97,8 +152,7 @@
         <article>
             <h2>About Crazy Fridays inc.</h2>
             <p>Our mission is to be the most laid-back workplace in the world.</p>
-            <blockquote>"Too weird to live, too rare to die." - Confucius
-            </blockquote>
+            <blockquote>"Too weird to live, too rare to die." - Confucius</blockquote>
         </article>
         <aside>
             <h3>Why Join Us?</h3>
@@ -110,18 +164,16 @@
         </aside>
     </section>
 
-    <!-- <section id="apply" class="form-section"> -->
+    <section id="apply" class="form-section">
         <h2>Job Application Form</h2>
 
         <form action="/submit" method="POST" autocomplete="on" aria-label="Job Application Form">
             <!-- Basic Info -->
             <label for="fullname">Full Name:</label>
-            <input type="text" id="fullname" name="fullname" placeholder="John Doe" required minlength="3"
-                maxlength="50" pattern="[A-Za-z\s]+">
+            <input type="text" id="fullname" name="fullname" placeholder="John Doe" required minlength="3" maxlength="50" pattern="[A-Za-z\s]+">
 
             <label for="email">Email:</label>
-            <input type="text" id="email" name="email" placeholder="you@example.com" required
-                pattern="[^@\s]+@[^@\s]+\.[^@\s]+">
+            <input type="email" id="email" name="email" placeholder="you@example.com" required>
 
             <!-- Password -->
             <label for="password">Create Password:</label>
@@ -135,19 +187,40 @@
             <label for="salary">Expected Salary (€):</label>
             <input type="range" id="salary" name="salary" min="20000" max="100000" step="5000">
 
-            <!-- Radio Buttons -->
-            <section id="employment-type">
-            <p>Preferred Employment Type:</p>
+            <!-- Radio Buttons (grouped & aligned) -->
+            <section id="employment-type" aria-label="Preferred Employment Type">
+                <p>Preferred Employment Type:</p>
 
-            <input type="radio" id="fulltime" name="jobtype" value="fulltime" required><label for="fulltime">Fulltime</label>
-            <input type="radio" id="parttime" name="jobtype" value="parttime"><label for="parttime">Parttime clown</label>
+                <!-- wrap input + text in a label.option so they align perfectly -->
+                <label class="option" for="fulltime">
+                    <input type="radio" id="fulltime" name="jobtype" value="fulltime" required>
+                    Fulltime
+                </label>
+
+                <label class="option" for="parttime">
+                    <input type="radio" id="parttime" name="jobtype" value="parttime">
+                    Parttime clown
+                </label>
             </section>
-            <!-- Checkboxes -->
-            <section id="job-preferences">
-            <p>Job Preferences:</p>
-            <input type="checkbox" id="remote" name="preferences" value="remote"><label for="remote">Remote clowning</label>
-            <input type="checkbox" id="onsite" name="preferences" value="onsite"><label for="onsite">On-site clowning</label>
-            <input type="checkbox" id="flex" name="preferences" value="flex"><label for="flex" class="text">Flexible clowning</label>
+
+            <!-- Checkboxes (grouped & aligned) -->
+            <section id="job-preferences" aria-label="Job Preferences">
+                <p>Job Preferences:</p>
+
+                <label class="option" for="remote">
+                    <input type="checkbox" id="remote" name="preferences" value="remote">
+                    Remote clowning
+                </label>
+
+                <label class="option" for="onsite">
+                    <input type="checkbox" id="onsite" name="preferences" value="onsite">
+                    On-site clowning
+                </label>
+
+                <label class="option" for="flex">
+                    <input type="checkbox" id="flex" name="preferences" value="flex">
+                    Flexible clowning
+                </label>
             </section>
 
             <!-- Dropdown -->
@@ -158,7 +231,7 @@
                 <option value="designer">Boing the clown</option>
                 <option value="analyst">Droid the droid</option>
                 <option value="manager">R2D2</option>
-            </select><br><br>
+            </select>
 
             <!-- Datalist -->
             <label for="city">Preferred Office Location:</label>
@@ -168,7 +241,7 @@
                 <option value="Berlin">
                 <option value="New York">
                 <option value="Deathstar">
-            </datalist><br><br>
+            </datalist>
 
             <!-- Textarea -->
             <label for="coverletter">Cover Letter:</label>
@@ -177,26 +250,24 @@
 
             <!-- Disabled & Readonly -->
             <label for="jobid">Job ID (Readonly Example):</label>
-            <input type="text" id="jobid" name="jobid" value="DT-2025-001" readonly><br><br>
+            <input type="text" id="jobid" name="jobid" value="DT-2025-001" readonly>
 
             <label for="referral">Referral Code (Disabled Example):</label>
             <input type="text" id="referral" name="referral" value="InviteOnly" disabled>
 
             <!-- Embed Example -->
-            <p>The qualities we are looking for are demostrated in this video:</p>
+            <p>The qualities we are looking for are demonstrated in this video:</p>
             <video width="320" height="240" controls loop autoplay>
-                <source src="https://files.catbox.moe/02lszg.webm" type="video/mp4">
-                <!-- Your browser does not support the video tag. -->
-            </video><br><br>
+                <source src="https://files.catbox.moe/02lszg.webm" type="video/webm">
+            </video>
+
             <!-- Submit -->
             <input type="submit" value="Send">
         </form>
-    <!-- </section> -->
+    </section>
 
-    <footer>
-            <section id="contact">
-        <p>&copy; 2025 Crazy Fridays inc. All rights reserved. Email us <a href="mailto: effoff@dot.com">effoff@dot.com</a></p>
-            </section>
+    <footer id="contact">
+        <p>&copy; 2025 Crazy Fridays inc. All rights reserved. Email us <a href="mailto:effoff@dot.com">effoff@dot.com</a></p>
     </footer>
 </body>
 
