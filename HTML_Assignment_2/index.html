@@ -24,8 +24,6 @@
             background: #fff;
             border-radius: 5px;
         }
-        section.form-section {
-        }
 
         header {
             background: #2c3e50;
@@ -138,17 +136,19 @@
             <input type="range" id="salary" name="salary" min="20000" max="100000" step="5000">
 
             <!-- Radio Buttons -->
+            <section id="employment-type">
             <p>Preferred Employment Type:</p>
 
             <input type="radio" id="fulltime" name="jobtype" value="fulltime" required><label for="fulltime">Fulltime</label>
             <input type="radio" id="parttime" name="jobtype" value="parttime"><label for="parttime">Parttime clown</label>
-                
+            </section>
             <!-- Checkboxes -->
+            <section id="job-preferences">
             <p>Job Preferences:</p>
             <input type="checkbox" id="remote" name="preferences" value="remote"><label for="remote">Remote clowning</label>
             <input type="checkbox" id="onsite" name="preferences" value="onsite"><label for="onsite">On-site clowning</label>
             <input type="checkbox" id="flex" name="preferences" value="flex"><label for="flex" class="text">Flexible clowning</label>
-
+            </section>
 
             <!-- Dropdown -->
             <label for="position">Position Applying For:</label>
