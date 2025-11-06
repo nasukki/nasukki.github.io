@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Sorry for me autoplay, just had to do it... -->
+
+<head>
+    <meta charset="UTF-8">
+    <title>Apply for a job - Crazy Fridays inc.</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        header,
+        nav,
+        section,
+        article,
+        aside,
+        footer {
+            padding: 10px;
+            margin: 10px;
+            background: #fff;
+            border-radius: 5px;
+        }
+
+        header {
+            background: #2c3e50;
+            color: #fff;
+        }
+
+        nav a {
+            margin-right: 10px;
+            text-decoration: none;
+            color: #2c3e50;
+        }
+        input,
+        select,
+        textarea {
+            margin-top: 0px;
+            padding: 0px;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .form-section {
+            background: #ecf0f1;
+            padding: 15px;
+        }
+
+        label {
+            display: block;
+            margin-top: 0px;
+        }
+.preferred {
+    display: flex;
+    align-items: center;
+    margin-bottom: 4px;
+}
+.preferred label {
+    margin-left: 5px;
+}
+
+        footer {
+            font-size: 0.8em;
+            text-align: center;
+            color: #555;
+        }
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <h1>Crazy Fridays inc.</h1>
+        <p>Shirt, ties and shoes optional.</p>
+    </header>
+
+    <nav>
+        <a href="#apply">Apply Now</a>
+        <a href="#about">About Us</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <section id="about">
+        <article>
+            <h2>About Crazy Fridays inc.</h2>
+            <p>Our mission is to be the most laid-back workplace in the world.</p>
+            <blockquote>"Too weird to live, too rare to die." - Confucius
+            </blockquote>
+        </article>
+        <aside>
+            <h3>Why Join Us?</h3>
+            <ul>
+                <li>Have fun</li>
+                <li>Have more fun</li>
+                <li>Have even more fun</li>
+            </ul>
+        </aside>
+    </section>
+
+    <section id="apply" class="form-section">
+        <h2>Job Application Form</h2>
+
+        <form action="/submit" method="POST" autocomplete="on" aria-label="Job Application Form">
+            <!-- Basic Info -->
+            <label for="fullname">Full Name:</label>
+            <input type="text" id="fullname" name="fullname" placeholder="John Doe" required minlength="3"
+                maxlength="50" pattern="[A-Za-z\s]+">
+
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" placeholder="you@example.com" required
+                pattern="[^@\s]+@[^@\s]+\.[^@\s]+">
+
+            <!-- Password -->
+            <label for="password">Create Password:</label>
+            <input type="password" id="password" name="password" placeholder="Enter password" required>
+
+            <!-- Number -->
+            <label for="experience">Years of Experience:</label>
+            <input type="number" id="experience" name="experience" min="0" max="90" placeholder="5">
+
+            <!-- Range -->
+            <label for="salary">Expected Salary (€):</label>
+            <input type="range" id="salary" name="salary" min="20000" max="100000" step="5000">
+
+            <!-- Radio Buttons -->
+            <p>Preferred Employment Type:</p>
+            <div class="preferred">
+            <input type="radio" id="fulltime" name="jobtype" value="fulltime" required><label for="fulltime">Fulltime</label>
+            <input type="radio" id="parttime" name="jobtype" value="parttime"><label for="parttime">Parttime clown</label>
+</div>
+            <!-- Checkboxes -->
+            <p>Job Preferences:</p>
+            <input type="checkbox" id="remote" name="preferences" value="remote"><label for="remote">Remote clowning</label>
+            <input type="checkbox" id="onsite" name="preferences" value="onsite"><label for="onsite">On-site clowning</label>
+            <input type="checkbox" id="flex" name="preferences" value="flex"><label for="flex" class="text">Flexible clowning</label>
+
+            <!-- Dropdown -->
+            <label for="position">Position Applying For:</label>
+            <select id="position" name="position">
+                <option value="">Select a position</option>
+                <option value="developer">Doing the clown</option>
+                <option value="designer">Boing the clown</option>
+                <option value="analyst">Droid the droid</option>
+                <option value="manager">R2D2</option>
+            </select><br><br>
+
+            <!-- Datalist -->
+            <label for="city">Preferred Office Location:</label>
+            <input list="cities" id="city" name="city" placeholder="Start typing...">
+            <datalist id="cities">
+                <option value="Helsinki">
+                <option value="Berlin">
+                <option value="New York">
+                <option value="Deathstar">
+            </datalist><br><br>
+
+            <!-- Textarea -->
+            <label for="coverletter">Cover Letter:</label>
+            <textarea id="coverletter" name="coverletter" rows="5" cols="50"
+                placeholder="Write your cover letter here...be funny or else"></textarea>
+
+            <!-- Disabled & Readonly -->
+            <label for="jobid">Job ID (Readonly Example):</label>
+            <input type="text" id="jobid" name="jobid" value="DT-2025-001" readonly><br><br>
+
+            <label for="referral">Referral Code (Disabled Example):</label>
+            <input type="text" id="referral" name="referral" value="InviteOnly" disabled>
+
+            <!-- Embed Example -->
+            <p>The qualities we are looking for are demostrated in this video:</p>
+            <video width="320" height="240" controls loop autoplay>
+                <source src="https://files.catbox.moe/02lszg.webm" type="video/mp4">
+                <!-- Your browser does not support the video tag. -->
+            </video><br><br>
+            <!-- Submit -->
+            <input type="submit" value="Send">
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Crazy Fridays inc. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
