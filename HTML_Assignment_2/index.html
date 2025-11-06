@@ -152,18 +152,18 @@
             <!-- Range -->
             <label for="salary">Expected Salary (€):</label>
             <input type="range" id="salary" name="salary" min="20000" max="100000" step="5000">
-
+      
             <!-- Radio Buttons -->
-            <section id="employment-type">
+            <div id="employment-type" class="group" aria-label="Preferred employment type">
                 <p>Preferred Employment Type:</p>
                 <input type="radio" id="fulltime" name="jobtype" value="fulltime" required>
                 <label for="fulltime">Fulltime</label>
                 <input type="radio" id="parttime" name="jobtype" value="parttime">
                 <label for="parttime">Parttime clown</label>
-            </section>
+            </div>
 
             <!-- Checkboxes -->
-            <section id="job-preferences">
+            <div id="job-preference" class="group" aria-label="Job Preferences">
                 <p>Job Preferences:</p>
                 <input type="checkbox" id="remote" name="preferences" value="remote">
                 <label for="remote">Remote clowning</label>
@@ -171,7 +171,7 @@
                 <label for="onsite">On-site clowning</label>
                 <input type="checkbox" id="flex" name="preferences" value="flex">
                 <label for="flex">Flexible clowning</label>
-            </section>
+            </div>
 
             <!-- Dropdown -->
             <label for="position">Position Applying For:</label>
