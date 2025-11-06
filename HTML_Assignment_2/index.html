@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- Sorry for me autoplay, just had to do it... -->
+<!-- Sorry for the autoplay, just had to do it... -->
 
 <head>
     <meta charset="UTF-8">
@@ -46,6 +46,7 @@
             padding: 0px;
             width: 100%;
             max-width: 500px;
+            padding: 0px;
         }
 
         label {
@@ -58,7 +59,7 @@
         #job-preferences input[type="checkbox"] {
             width: auto;
             margin-right: 6px;
-            vertical-align: middle;
+            vertical-align: center;
         }
 
         #employment-type label,
@@ -66,12 +67,19 @@
             display: inline-block;
             margin-right: 15px;
             margin-top: 0;
-            vertical-align: middle;
+            margin-left: 0;
+            vertical-align: text-bottom;
+            padding: 0px;
         }
 
-        #employment-type p,
-        #job-preferences p {
-            margin-bottom: 6px;
+        #oikeelle {
+            float: right;
+            margin-top: 60px;
+            margin-right: 40px;
+            border-width: 2px;
+            border-radius: 2px;
+            padding: 5px;
+            border-style: solid;
         }
 
         footer {
@@ -94,6 +102,12 @@
         <a href="#contact">Contact</a>
     </nav>
 
+    <div id="oikeelle">
+        <video width="320" height="240" controls loop autoplay>
+            <source src="https://files.catbox.moe/02lszg.webm" type="video/mp4">
+            <p>Your browser does not support video, too bad for you.</p>
+        </video>
+    </div>
     <section id="about">
         <article>
             <h2>About Crazy Fridays inc.</h2>
@@ -136,16 +150,16 @@
             <input type="range" id="salary" name="salary" min="20000" max="100000" step="5000">
 
             <!-- Radio Buttons -->
-            <section id="employment-type">
+            <div id="employment-type">
                 <p>Preferred Employment Type:</p>
                 <input type="radio" id="fulltime" name="jobtype" value="fulltime" required>
                 <label for="fulltime">Fulltime</label>
                 <input type="radio" id="parttime" name="jobtype" value="parttime">
                 <label for="parttime">Parttime clown</label>
-            </section>
+            </div>
 
             <!-- Checkboxes -->
-            <section id="job-preferences">
+            <div id="job-preferences">
                 <p>Job Preferences:</p>
                 <input type="checkbox" id="remote" name="preferences" value="remote">
                 <label for="remote">Remote clowning</label>
@@ -153,7 +167,7 @@
                 <label for="onsite">On-site clowning</label>
                 <input type="checkbox" id="flex" name="preferences" value="flex">
                 <label for="flex">Flexible clowning</label>
-            </section>
+            </div>
 
             <!-- Dropdown -->
             <label for="position">Position Applying For:</label>
@@ -187,16 +201,12 @@
             <label for="referral">Referral Code (Disabled Example):</label>
             <input type="text" id="referral" name="referral" value="InviteOnly" disabled>
 
-            <!-- Embed Example -->
-            <p>The qualities we are looking for are demonstrated in this video:</p>
-            <video width="320" height="240" controls loop autoplay>
-                <source src="https://files.catbox.moe/02lszg.webm" type="video/mp4">
-            </video>
-    <br><br>
+
+            <br><br>
             <!-- Submit -->
             <input type="submit" value="Send">
         </form>
-        </section>
+    </section>
 
     <footer>
         <section id="contact">
