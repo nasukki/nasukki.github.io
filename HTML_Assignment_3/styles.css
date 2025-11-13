@@ -57,14 +57,28 @@ label {
 
 /* ID style selectors */
 
-#employment-type input[type="radio"], /* Attribute selectors */
-#job-preferences input[type="checkbox"] { /* Attribute selectors */
+#employment-type input[type="radio"],
+/* Attribute selectors */
+#job-preferences input[type="checkbox"] {
+    /* Attribute selectors */
     width: auto;
     margin-right: 6px;
     vertical-align: center;
 }
 
-/* Descendent combinators? */
+/* 2.6 Descendent combinators? */
+
+section .main-list {
+
+    list-style-type: square;
+    background-color: aqua;
+    border: 1px solid green;
+    border-radius: 4px;
+    padding: 10px;
+    margin: 20px auto;
+    max-width: 400px;
+
+}
 
 #employment-type label,
 #job-preferences label {
