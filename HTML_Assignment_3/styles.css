@@ -1,9 +1,12 @@
+/* Reset defaults */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-/* Type selectors */
+
+/* Type selectors AND multiple selectors */
 
 body {
     font-family: Arial;
@@ -56,12 +59,14 @@ label {
 
 /* ID style selectors */
 
-#employment-type input[type="radio"],
-#job-preferences input[type="checkbox"] {
+#employment-type input[type="radio"], /* Attribute selectors */
+#job-preferences input[type="checkbox"] { /* Attribute selectors */
     width: auto;
     margin-right: 6px;
     vertical-align: center;
 }
+
+/* Descendent combinators? */
 
 #employment-type label,
 #job-preferences label {
