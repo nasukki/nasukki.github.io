@@ -1,0 +1,262 @@
+/* RESET TO DEFAULTS */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-style: normal; /* Demonstrates font-style */
+    background: #f5f5f5; /* Hex color */
+    color: rgb(34,34,34); /* RGB color */
+    line-height: 1.6;
+    letter-spacing: 0.5px;
+    word-spacing: 2px;
+    transition: background-color 0.4s ease, color 0.4s ease;
+    padding-top: 10px;
+    
+}
+body.dark-mode {
+    background: hsl(0, 0%, 7%); /* HSL color */
+    color: hsla(0, 0%, 89%, 1); /* HSLA with opacity */
+}
+
+/* Remove elements based on screen size */
+@media screen and (min-width:0px) and (max-width:1024px) {
+  .smallscreen   { display: none; }
+}
+
+
+/* =============================== */
+/*        HERO                     */
+/* =============================== */
+
+.hero {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  text-align: center;
+  overflow: hidden;
+  color: white;
+  padding-left: 20%;
+  padding-right: 20%;
+}
+
+.hero-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  z-index: 1;
+}
+
+
+/* Hero content stays centered */
+.hero-content {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.hero h2 {
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  text-shadow: 3px 3px 8px rgba(0,0,0,0.7);
+  margin-top: -20px;
+}
+.hero h3 {
+  font-size: clamp(1.0rem, 3vw, 2rem);
+  margin-top: 10px;
+  margin-bottom: 30px;
+  text-shadow: 3px 3px 8px rgba(0,0,0,0.7);
+}
+
+.hero p {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+  padding: 40px;
+  margin: 20px;
+}
+
+.hero-btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background: #ff4c4c;
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.hero-btn:hover {
+  transform: scale(1.05);
+  background: #e04343;
+}
+
+/* =============================== */
+/*         TOGGLE BUTTON           */
+/* =============================== */
+.toggle-btn {
+    position: fixed; /* fixed positioning */
+    top: 20px;
+    right: 20px;
+    padding: 10px 16px;
+    border: none;
+    background: red; /* Named color */
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background 0.3s;
+    z-index: 200; /* Ensures it appears above other content */
+}
+.toggle-btn:hover {
+    transform: scale(1.07);
+    background: blue; /* Named color hover */
+}
+
+/* =============================== */
+/*             HEADER              */
+/* =============================== */
+
+.header {
+
+    position: relative;
+    width: 100%;
+    height: 100px;
+    top: 0px;
+    padding-bottom: 40px;
+    text-align: center;
+ /*   padding-left: 20px; reserve left space for logo */
+}
+.site-title {
+    font-size: 2.5rem;
+    font-weight: bold; /* keyword */
+    text-transform: uppercase; /* demonstrates text-transform */
+}
+.navbar a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: inherit;
+    font-weight: 300; /* numeric font-weight */
+    display: inline; /* demonstrates display */
+    transition: opacity 0.3s ease;
+
+}
+.navbar a:hover {
+    opacity: 0.6;
+}
+
+/* =============================== */
+/*            GALLERY ITEMS        */
+/* =============================== */
+.gallery-container {
+    text-align: center;
+    padding: 40px 20px;
+    scroll-padding-top: 100px;
+}
+
+/* Base gallery item */
+.gallery-item {
+    display: inline-block; /* inline-block for gallery layout */
+    margin: 20px;
+    position: static; /* default positioning */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.gallery-item img {
+    width: 100%;
+    max-width: 250px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+.gallery-item:hover img {
+    transform: scale(1.05); /* subtle hover animation */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+}
+.caption {
+    margin-top: 8px;
+    font-style: italic; /* demonstrates font-style */
+}
+
+/* Relative positioned example */
+.relative-item {
+    position: relative;
+    z-index: 1; /* stack above static content */
+}
+
+/* Absolute positioned badge */
+.absolute-wrapper {
+    position: relative; /* parent for absolute badge */
+}
+.absolute-wrapper .badge {
+    position: absolute; /* absolute positioning */
+    top: 10px;
+    right: 10px;
+    background: rgba(255, 0, 0, 0.7); /* opacity with rgba */
+    color: white;
+    padding: 5px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    z-index: 10;
+}
+
+/* Floated item */
+.floated-item {
+    float: center;
+    width: 250px;
+}
+
+/* Clear floated elements */
+.clear-box {
+    clear: both;
+    padding: 10px;
+    background: rgba(0,0,255,0.1); /* subtle color */
+}
+
+/* Sticky item */
+.sticky-item {
+    position: sticky;
+    top: 10px;
+    background: rgba(0,255,0,0.1);
+    padding: 5px;
+    z-index: 5;
+}
+
+/* Fixed item */
+.fixed-item {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: rgba(255,255,0,0.2);
+    padding: 5px;
+    z-index: 100;
+}
+
+/* =============================== */
+/*             FOOTER              */
+/* =============================== */
+.footer {
+    text-align: center;
+    padding: 30px;
+    opacity: 0.8;
+}
