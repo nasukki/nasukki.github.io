@@ -98,8 +98,8 @@ input[type="password"] {
 img[source="horrible"] {
     border: 1px solid #2c3e50;
     border-radius: 20px;
-    width: 100px;
-    height: 100px;
+    width: 200px;
+    height: 300px;
     margin: 0 auto;
     display: block;
 }
