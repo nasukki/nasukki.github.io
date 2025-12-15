@@ -1,158 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
 <!-- Sorry for the autoplay, just had to do it... -->
+
 <head>
 
     <meta charset="UTF-8">
     <!-- Viewport tag for responsiveness -->
     <meta name="Viewport" content="width=device-width, initial-scale=1.0">
     <title>Apply for a job - Crazy Fridays inc. V2</title>
-    <style> /* Internal CSS styles */
-    body { font-family: Arial, sans-serif; margin: 20px;}
-    header, footer { background-color: #0000; padding: 10px; }
-    nav a { margin: 0 10px; }
-    section { margin-top: 20px; }
-    .form-section {background-color: lightpink; padding: 15px; border: 1px solid #ccc; }
+    <style>
+        /* Internal CSS styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        header,
+        footer {
+            background-color: #0000;
+            padding: 10px;
+        }
+
+        nav a {
+            margin: 0 10px;
+        }
+
+        section {
+            margin-top: 20px;
+        }
+
+        .form-section {
+            background-color: lightpink;
+            padding: 15px;
+            border: 1px solid #ccc;
+        }
     </style>
     <!-- External stylesheet -->
     <link rel="stylesheet" href="styles.css">
 
 </head>
+
 <body>
     <header>
         <!-- id selector #main-title and chaining h1.title in external css -->
         <h1 class="title" id="main-title">Laurea buuhuu</h1>
         <h1>Crazy Fridays inc. V2</h1>
 
-<!-- Class selector .menu -->
+        <!-- Class selector .menu -->
 
-    <nav class="menu">
-        <a href="#apply">Apply Now</a>
-        <a href="#about">About Us</a>
-        <a href="#contact">Contact</a>
-    </nav>
+        <nav class="menu">
+            <a href="#apply">Apply Now</a>
+            <a href="#about">About Us</a>
+            <a href="#contact">Contact</a>
+        </nav>
     </header>
-        <aside>
-            <h3>Why Join Us?</h3>
-            <ul>
-                <li>Have fun</li>
-                <li>Have more fun</li>
-                <li>Have even more fun</li>
-            </ul>
-        </aside>
+    <aside>
+        <h3>Why Join Us?</h3>
+        <ul>
+            <li>Have fun</li>
+            <li>Have more fun</li>
+            <li>Have even more fun</li>
+        </ul>
+    </aside>
     </section>
     <main>
-<!-- Class selector .form-section -->
-    <section class="form-section">
-                 <article>
-        <h2>Job Application Form</h2>
-        <!-- Application form starts here -->
+        <!-- Class selector .form-section -->
+        <section class="form-section">
+            <article>
+                <h2>Job Application Form</h2>
+                <!-- Application form starts here -->
 
-        <form action="/submit" method="POST" autocomplete="on" aria-label="Job Application Form">
-            <!-- Descendent combinators: Selector ".form-section label" in external CSS --> 
-            <label>Full name:
-            <input type="text" id="fullname" name="fullname" placeholder="John Doe" required minlength="3"
-                maxlength="50" pattern="[A-Za-z\s]+"> </label><br><br>
+                <form action="/submit" method="POST" autocomplete="on" aria-label="Job Application Form">
+                    <!-- Descendent combinators: Selector ".form-section label" in external CSS -->
+                    <label>Full name:
+                        <input type="text" name="fullname" placeholder="John Doe" required minlength="3"
+                            maxlength="50" pattern="[A-Za-z\s]+"> </label><br><br>
 
-            <label>Email:
-            <input type="text" id="email" name="email" placeholder="you@example.com" required
-                pattern="[^@\s]+@[^@\s]+\.[^@\s]+"></label><br><br>
+                    <label>Email:
+                        <input type="text" name="email" placeholder="you@example.com" required
+                            pattern="[^@\s]+@[^@\s]+\.[^@\s]+"></label><br><br>
 
-            <!-- Password -->
-            <label>Create Password:
-            <input type="password" id="password" name="password" placeholder="Enter password" required>
-</label><br><br>
-            <!-- Number -->
-            <label>Years of Experience:
-            <input type="number" id="experience" name="experience" min="0" max="90" placeholder="5">
-</label><br><br>
-            <!-- Range -->
-            <label>Expected Salary (€):
-            <input type="range" id="salary" name="salary" min="20000" max="100000" step="5000">
-</label><br><br>
-            <!-- Radio Buttons -->
-            <label>Preferred Employment Type:</label><br>
-                <label><input type="radio" id="fulltime" name="jobtype" value="fulltime" required>Fulltime</label><br>
-                <label><input type="radio" id="parttime" name="jobtype" value="parttime">Parttime</label><br><br>
-
-
-            <!-- Checkboxes -->
-            <label>Job Preferences:</label><br>
-            <label><input type="checkbox" id="remote" name="preferences" value="remote">Remote</label><br>
-            <label><input type="checkbox" id="onsite" name="preferences" value="onsite">On Campus</label><br><br>    
-            
-            <!-- Dropdown -->
-            <label>Position Applying For:
-            <select name="position">
-                <option value="">Select a position</option>
-                <option value="developer">Doing the clown</option>
-                <option value="designer">Boing the clown</option>
-                <option value="analyst">Droid the droid</option>
-                <option value="manager">R2D2</option>
-            </select>
-        </label><br><br>
-
-            <!-- Datalist -->
-            <label>Preferred Office Location:</label>
-            <input list="cities" name="city" placeholder="Start typing...">
-            <datalist id="cities">
-                <option value="Helsinki">
-                <option value="Berlin">
-                <option value="New York">
-                <option value="Deathstar">
-            </datalist></label><br><br>
-
-            <!-- Textarea -->
-            <label>Cover Letter:<br>
-            <textarea id="coverletter" name="coverletter" rows="5" cols="50"
-                placeholder="Write your cover letter here...be funny or else"></textarea>
-</label>
-            <!-- Disabled & Readonly -->
-            <label for="jobid">Job ID (Readonly Example):</label>
-            <input type="text" id="jobid" name="jobid" value="DT-2025-001" readonly>
-
-            <label for="referral">Referral Code (Disabled Example):</label>
-            <input type="text" id="referral" name="referral" value="InviteOnly" disabled>
+                    <!-- Password -->
+                    <label>Create Password:
+                        <input type="password" name="password" placeholder="Enter password" required>
+                    </label><br><br>
+                    <!-- Number -->
+                    <label>Years of Experience:
+                        <input type="number" name="experience" min="0" max="90" placeholder="5">
+                    </label><br><br>
+                    <!-- Range -->
+                    <label>Expected Salary (€):
+                        <input type="range" name="salary" min="20000" max="100000" step="5000">
+                    </label><br><br>
+                    <!-- Radio Buttons -->
+                    <label>Preferred Employment Type:</label><br>
+                    <label><input type="radio" name="jobtype" value="fulltime"
+                            required>Fulltime</label><br>
+                    <label><input type="radio" name="jobtype" value="parttime">Parttime</label><br><br>
 
 
-            <br><br>
-            <!-- Submit -->
-            <input type="submit" value="Send">
-        </form>
-        </article>
-    </section>
+                    <!-- Checkboxes -->
+                    <label>Job Preferences:</label><br>
+                    <label><input type="checkbox" name="preferences" value="remote">Remote</label><br>
+                    <label><input type="checkbox" name="preferences" value="onsite">On
+                        Campus</label><br><br>
 
-    <section>
-                    <blockquote id="quote">Too weird to live, too rare to die." - Confucius
+                    <!-- Dropdown -->
+                    <label>Position Applying For:
+                        <select name="position">
+                            <option value="developer">Doing the clown</option>
+                            <option value="designer">Boing the clown</option>
+                            <option value="analyst">Droid the droid</option>
+                            <option value="manager">R2D2</option>
+                        </select>
+                    </label><br><br>
+
+                    <!-- Datalist -->
+                    <label>Preferred Office Location:</label>
+                    <input list="cities" name="city" placeholder="Start typing...">
+                    <datalist id="cities">
+                        <option value="Helsinki">
+                        <option value="Berlin">
+                        <option value="New York">
+                        <option value="Deathstar">
+                    </datalist></label><br><br>
+
+                    <!-- Textarea -->
+                    <label>Cover Letter:<br>
+                        <textarea name="coverletter" rows="5" cols="50" placeholder="Write your cover letter here...be funny or else"></textarea>
+                    </label><br><br>
+                    <!-- Disabled & Readonly -->
+                    <label>Job ID (Readonly Example):
+                    <input type="text" id="jobid" name="jobid" value="DT-2025-001" readonly></label><br><br>
+
+                    <label>Referral Code (Disabled Example):
+                    <input type="text" id="referral" name="referral" value="InviteOnly" disabled></label><br><br>
+
+                    <!-- Submit -->
+                    <input type="submit" value="Send">
+                </form>
+            </article>
+        </section>
+
+        <section>
+            <blockquote id="quote">Too weird to live, too rare to die." - Confucius
             </blockquote>
-        <h2 class="red.bold">Checklist</h2> <!-- red.bold in external CSS -->
-        <ul class="main-list"> <!-- "section .main-list" in external CSS-->
-            <li>Forget everything</li>
-            <li>Leave your shirt at home</li>
-            <li>Click on the logo</li>
-        </ul>
+            <h2 class="red.bold">Checklist</h2> <!-- red.bold in external CSS -->
+            <ul class="main-list"> <!-- "section .main-list" in external CSS-->
+                <li>Forget everything</li>
+                <li>Leave your shirt at home</li>
+                <li>Click on the logo</li>
+            </ul>
 
-    </section>
+        </section>
     </main>
     <section>
-<!-- Inline CSS applied to paragraph element. Also class .Visit-laurea is used in external CSS -->
- <p style="text-align: center; margin: 20px 0 20px 0;">No information available from <a href="https://www.laurea.fi/en/laurea/as-an-employer" class="Visit-laurea">nowhere</a></p>
- <!-- Class .Laurea in external CSS -->
- <a href="https://www.laurea.fi"><img src="horrible.png" class="Laurea" alt="Horrible pic"></a>
+        <!-- Inline CSS applied to paragraph element. Also class .Visit-laurea is used in external CSS -->
+        <p style="text-align: center; margin: 20px 0 20px 0;">No information available from <a
+                href="https://www.laurea.fi/en/laurea/as-an-employer" class="Visit-laurea">nowhere</a></p>
+        <!-- Class .Laurea in external CSS -->
+        <a href="https://www.laurea.fi"><img src="horrible.png" class="Laurea" alt="Horrible pic"></a>
     </section>
-<!-- Demostrates visibility: hidden
+    <!-- Demostrates visibility: hidden
  Remove ruleset in external CSS to view the logo above the footer element -->
 
-<section class="hidden-logo">
-<img src=""horrible.png" alt="Horrible pic" style="width: 200px; height: 20px;">
-</section>
+    <section class="hidden-logo">
+        <img src="" horrible.png" alt="Horrible pic" style="width: 200px; height: 20px;">
+    </section>
 
     </section>
     <footer class="contact">
-            <h5>&copy; 2025 Crazy Fridays inc. All rights reserved. Email us
-                <a href="mailto:effoff@dot.com">effoff@dot.com</a>
-            </h5>
+        <h5>&copy; 2025 Crazy Fridays inc. All rights reserved. Email us
+            <a href="mailto:effoff@dot.com">effoff@dot.com</a>
+        </h5>
     </footer>
-    </body>
+</body>
 
 </html>
