@@ -115,6 +115,11 @@ img[source="horrible"] {
 section .main-list {
 list-style-type: square;
 max-width: 400px;
+border: 1px solid black;
+border-radius: 6px;
+padding: 15px;
+margin: 20px auto;
+background-color: grey;
 }
 .main-list li {
 
