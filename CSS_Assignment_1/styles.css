@@ -1,0 +1,251 @@
+/* Reset defaults */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Type selectors AND multiple selectors */
+
+/* Heading H1 style */
+
+h1 {
+
+    margin-top: 20px;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    font-size: 2em;
+    color: #fff;
+}
+
+/* Aside style */
+
+aside {
+
+    text-align: center;
+    color: grey;
+
+}
+
+/* Heading H2 style */
+
+h2 {
+
+    text-align: center;
+    margin-bottom: 15px;
+
+
+}
+
+/* Form style */
+
+form {
+
+    color: black !important;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 600px;
+    border-radius: 8px;
+}
+
+/* Paragraph <p> style */
+
+p {
+
+    font-size: 14px;
+    color: #6969;
+}
+
+/* Navigation bar styling */
+nav {
+
+text-align: center;
+margin: 15px 0;
+
+}
+
+/* Footer style */
+
+footer {
+    font-size: 0.8em;
+    text-align: center;
+    color: #555;
+    opacity: 1;
+}
+/* Form section styling */
+.form-section {
+
+    background-color: #aaaa;
+    margin: 20px auto;
+    padding: 15px;
+    border-radius: 8px;
+    width: 60%;
+    color: black !important;
+
+}
+#main-title {
+
+    color: whitesmoke;
+    margin-bottom: 20px;
+}
+.red-bold {
+
+    color: red;
+    font-weight: bold;
+
+}
+a {
+  color: hotpink;
+}
+/* mouse over hover pseudo styling */
+a:hover {
+  font-weight: bold;
+}
+/* ID style selectors */
+
+input[type="text"] {
+    border: 1px solid #ccc;
+    margin: 1px 5px 1px 5px; /* Margin shorthand */
+    padding: 5px 10px 5px 10px; /* Padding shorthand */
+}
+input[type="password"] {
+    border: 1px solid #ccc;
+    margin: 1px 5px 1px 5px; /* Margin shorthand */
+    padding: 5px 10px 5px 10px; /* Padding shorthand */
+}
+img[src*="horrible"] {
+    border: 1px solid #2c3e50;
+    border-radius: 20px;
+    width: 200px;
+    height: 300px;
+    margin: 0 auto;
+    display: block;
+
+}
+
+.form-section label {
+
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+
+}
+section .main-list {
+list-style-type: square;
+max-width: 400px;
+border: 1px solid black;
+border-radius: 6px;
+padding: 15px;
+margin: 20px auto;
+background-color: grey;
+}
+.main-list li {
+
+margin-left: 20px;
+color: #444;
+padding: 5px 0;
+
+}
+/* --- 2.7 Multiple selectors --- */
+
+/* Contains two type selectors and one class selector */
+h1, h2, .menu { /* Class ".menu" targets the navbar or <nav> element */
+    color: #222;
+    font-family: Verdana, sans-serif;
+}
+
+/* --- 2.8 Chaining --- */
+
+/* h1 is a type selector chained with class ".title" together forming "h1.title" */
+h1.title {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* --- 2.9 Pseudo-classes --- */
+
+/* Laurea logo hover effect */
+.Laurea:hover {
+    opacity: 0.7;
+    transform: scale(1.2); /* Slightly enlarges on hover */
+    transition: all 0.3s ease; /* Smooth animation */
+}
+
+/* Clicking Laurea logo makes it change */
+.Laurea:active {
+    opacity: 1.0;
+}
+
+/* Visiting the "Laurea UAS" link above the Laurea logo */
+.Visit-Laurea:visited {
+    color: red; /* Visited links change to red color */
+}
+
+/* Styling takes effect when input field is clicked to enter data */
+input:focus {
+    border-color: #004080;
+    outline: none;
+    background-color: #eef6ff;
+}
+
+/* Targets disabled input fields */
+input:disabled {
+    background-color: #eee;
+    color: #999;
+}
+/* ==================== 3. VISUAL RULES ==================== */
+
+/* Visual rules applied to body element (visible content on webpage) */
+/* Notice example of !important rule used on "background-image" property */
+body {
+    background-color:black;
+    color: white;
+    opacity: 0.98;
+
+    background-image: none !important; /* Example 1 */
+    background-image: url("https://images.seeklogo.com/logo-png/18/1/css3-logo-png_seeklogo-186678.png"); /* Example 2 */
+
+    /* Note: Example 1 overrides Example 2 because of !important rule.
+       Remove the rule to see Example 2 take effect. */
+}
+
+/* ==================== 3. THE BOX MODEL ==================== */
+
+/* Targets <textarea> element (Motivation letter) */
+textarea {
+    width: 100%;
+    min-width: 100px;
+    min-height: 120px;
+    max-height: 300px;
+    padding: 10px;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+    overflow: auto;
+}
+
+/* Demonstrates individual margin and padding properties (longhand syntax) */
+/* Instead of shorthand like: margin: 20px; padding: 20px; */
+/* Target: <blockquote> */
+#quote {
+    /* Margin (outer spacing) on all four sides */
+    margin-top: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+
+    /* Padding (inner spacing) on all four sides */
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+}
+
+/* Visibility example targeting second Laurea logo */
+/* This is a visibility property used to hide a second Laurea logo
+   located above the footer in the HTML source code. */
+.hidden-logo {
+    visibility: hidden;
+}

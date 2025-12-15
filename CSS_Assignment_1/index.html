@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Viewport tag for responsiveness -->
+    <meta name="Viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply for a job - Crazy Fridays inc. V2</title>
+    <style>
+        /* Internal CSS styles */
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        header, footer { background-color: #0000; padding: 10px; }
+        nav a { margin: 0 10px; }
+        section { margin-top: 20px; }
+        .form-section { background-color: lightpink; padding: 15px; border: 1px solid #ccc; }
+    </style>
+    <!-- External stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+    <header>
+        <!-- id selector #main-title and chaining h1.title in external css -->
+        <h1 class="title" id="main-title">Laurea buuhuu</h1>
+        <h1>Crazy Fridays inc. V2</h1>
+
+        <!-- Class selector .menu -->
+
+        <nav class="menu">
+            <a href="#apply">Apply Now</a>
+            <a href="#quote">Quote</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Class selector .form-section -->
+        <section class="form-section">
+            <article>
+                <h2>Job Application Form</h2>
+                <!-- Application form starts here -->
+
+                <form action="/submit" method="POST" autocomplete="on" aria-label="Job Application Form">
+                    <!-- Descendent combinators: Selector ".form-section label" in external CSS -->
+                    <label>Full name:
+                        <input type="text" name="fullname" placeholder="John Doe" required minlength="3"
+                            maxlength="50" pattern="[A-Za-z\s]+"> </label><br><br>
+
+                    <label>Email:
+                        <input type="text" name="email" placeholder="you@example.com" required
+                            pattern="[^@\s]+@[^@\s]+\.[^@\s]+"></label><br><br>
+
+                    <!-- Password -->
+                    <label>Create Password:
+                        <input type="password" name="password" placeholder="Enter password" required>
+                    </label><br><br>
+                    <!-- Number -->
+                    <label>Years of Experience:
+                        <input type="number" name="experience" min="0" max="90" placeholder="5">
+                    </label><br><br>
+                    <!-- Range -->
+                    <label>Expected Salary (€):
+                        <input type="range" name="salary" min="20000" max="100000" step="5000">
+                    </label><br><br>
+                    <!-- Radio Buttons -->
+                    <label>Preferred Employment Type:</label><br>
+                    <label><input type="radio" name="jobtype" value="fulltime"
+                            required>Fulltime</label><br>
+                    <label><input type="radio" name="jobtype" value="parttime">Parttime</label><br><br>
+
+
+                    <!-- Checkboxes -->
+                    <label>Job Preferences:</label><br>
+                    <label><input type="checkbox" name="preferences" value="remote">Remote</label><br>
+                    <label><input type="checkbox" name="preferences" value="onsite">On
+                        Campus</label><br><br>
+
+                    <!-- Dropdown -->
+                    <label>Position Applying For:
+                        <select name="position">
+                            <option value="developer">Doing the clown</option>
+                            <option value="designer">Boing the clown</option>
+                            <option value="analyst">Droid the droid</option>
+                            <option value="manager">R2D2</option>
+                        </select>
+                    </label><br><br>
+
+                    <!-- Datalist -->
+                    <label>Preferred Office Location:
+                    <input list="cities" name="city" placeholder="Start typing...">
+                    <datalist id="cities">
+                        <option value="Helsinki">
+                        <option value="Berlin">
+                        <option value="New York">
+                        <option value="Deathstar">
+                    </datalist></label><br><br>
+
+                    <!-- Textarea -->
+                    <label>Cover Letter:<br>
+                        <textarea name="coverletter" rows="5" cols="50" placeholder="Write your cover letter here...be funny or else"></textarea>
+                    </label><br><br>
+                    <!-- Disabled & Readonly -->
+                    <label>Job ID (Readonly Example):
+                    <input type="text" id="jobid" name="jobid" value="DT-2025-001" readonly></label><br><br>
+
+                    <label>Referral Code (Disabled Example):
+                    <input type="text" id="referral" name="referral" value="InviteOnly" disabled></label><br><br>
+
+                    <!-- Submit -->
+                    <input type="submit" value="Send Application" aria-label="Submit application">
+ 
+        </form>
+        <!-- Job Application Form Ends Here -->
+    </article>
+</section>
+
+<aside>
+    <blockquote id="quote">
+        "The future belongs to those who believe in the beauty of their dreams." — Eleanor Roosevelt
+    </blockquote>
+</aside>
+
+<section>
+    <h2 class="green bold">Checklist</h2> <!-- Multiple class selector ".green.bold" found in external CSS -->
+    <ul class="main-list"> <!-- Descendant combinators "section .main-list" found in external CSS -->
+        <li>Bring updated CV</li>
+        <li>Prepare references</li>
+        <li>Check Laurea career portal</li>
+    </ul>
+</section>
+
+<section>
+    <!-- Inline CSS applied to paragraph element. Also class ".Visit-Laurea" is used in external CSS. -->
+    <p style="text-align: center; margin: 20px 0 20px 0;">For more information, visit <a href="https://www.laurea.fi/en/laurea/as-an-employer/" class="Visit-Laurea">Laurea as an employer</a>
+    </p>
+<br><br>
+    <!-- Class ".Laurea" used in external CSS -->
+    <a href="https://www.laurea.fi/"><img src="horrible.png" class="Laurea" alt="Horror Logo"></a>
+</section>
+
+<!-- This logo is added here to demonstrate CSS declaration "visibility: hidden". Remove CSS ruleset in external CSS to view the logo above the <footer> element -->
+<section class="hidden-logo">
+    <img src="horrible.png" alt="Horror logo" style="width: 200px; height: 300px;">
+</section>
+
+</main>
+
+<!-- Class ".menu" used in external CSS -->
+<footer class="menu">
+    <p>&copy; 2025 Laurea University of Applied Sciences. All rights reserved.</p>
+</footer>
+
+<!-- Teremoro -->
+<!-- Painfully completed on 15.12.2025 -->
+
+</body>
+</html>
