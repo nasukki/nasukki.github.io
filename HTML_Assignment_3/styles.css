@@ -69,6 +69,7 @@ footer {
     padding: 15px;
     border-radius: 8px;
     width: 80%;
+
 }
 #main-title {
 
@@ -178,7 +179,7 @@ input:disabled {
 /* Notice example of !important rule used on "background-image" property */
 body {
     background-color:black;
-    color: lightgrey;
+    color: #333;
     opacity: 0.98;
 
     background-image: none !important; /* Example 1 */
