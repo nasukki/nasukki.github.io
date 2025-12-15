@@ -74,7 +74,7 @@ footer {
 }
 #main-title {
 
-    color: #2222;
+    color: whitesmoke;
     margin-bottom: 20px;
 }
 .red-bold {
@@ -180,7 +180,7 @@ input:disabled {
 /* Notice example of !important rule used on "background-image" property */
 body {
     background-color:black;
-    color: #333;
+    color: lightgrey;
     opacity: 0.98;
 
     background-image: none !important; /* Example 1 */
