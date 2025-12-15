@@ -2,22 +2,35 @@
 <html lang="en">
 <!-- Sorry for the autoplay, just had to do it... -->
 <head>
-    <link rel="stylesheet" href="styles.css">
+
     <meta charset="UTF-8">
+    <style> /* Internal CSS styles */
+    body { font-family: Arial, sans-serif; margin: 20px;}
+    header, footer { background-color: #0000; padding: 10px; }
+    nav a { margin: 0 10px; }
+    section { margin-top: 20px; }
+    .form-section {background-color: lightpink; padding: 15px; border: 1px solid #ccc; }
+    </style>
+    <!-- External stylesheet -->
+    <link rel="stylesheet" href="styles.css">
     <title>Apply for a job - Crazy Fridays inc. V2</title>
 </head>
 
 <body>
     <header>
+        <!-- id selector main-title and chaining -->
+        <h1 class="title" id="main-title">Laurea buuhuu</h1>
         <h1>Crazy Fridays inc. V2</h1>
         <p>Shirt, ties and shoes optional.</p>
-    </header>
-
-    <nav>
+    
+<!-- Class selector .menu -->
+    <nav class="menu">
         <a href="#apply">Apply Now</a>
         <a href="#about">About Us</a>
         <a href="#contact">Contact</a>
     </nav>
+    </header>
+    <main>
 
     <div id="oikeelle">
         <!-- Used video instead on <embed> I hope that is acceptable. -->
@@ -26,7 +39,7 @@
             <p>Your browser does not support video, too bad for you.</p>
         </video>
     </div>
-    <section id="about">
+ 
         <article>
             <h2>About Crazy Fridays inc.</h2>
             <p>Our mission is to be the most laid-back workplace in the world.</p>
@@ -43,8 +56,11 @@
         </aside>
     </section>
 
-    <section id="apply" class="page">
+    <!-- <section id="apply" class="page"> -->
+<!-- Class selector .form-section -->
+    <section class="form-section">
         <h2>Job Application Form</h2>
+        <!-- Application form starts here -->
         <form action="/submit" method="POST" autocomplete="on" aria-label="Job Application Form">
             <!-- Basic Info -->
             <label for="fullname">Full Name:</label>
@@ -141,6 +157,7 @@
             </h5>
         </section>
     </footer>
+    </main>
 </body>
 
 </html>
