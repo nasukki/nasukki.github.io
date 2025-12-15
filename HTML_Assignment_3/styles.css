@@ -20,7 +20,7 @@ h1 {
 aside {
 
     text-align: center;
-    color: red;
+    color: grey;
 
 }
 
@@ -179,7 +179,7 @@ input:disabled {
 /* Visual rules applied to body element (visible content on webpage) */
 /* Notice example of !important rule used on "background-image" property */
 body {
-    background-color: #fafafa;
+    background-color:black;
     color: #333;
     opacity: 0.98;
 
