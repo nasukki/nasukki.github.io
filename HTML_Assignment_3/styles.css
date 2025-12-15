@@ -31,8 +31,15 @@ h2 {
 
 }
 
+/* Navigation bar styling */
+nav {
+
+text-align: center;
+margin: 15px 0;
+
+}
+
 header,
-nav,
 article,
 section,
 aside,
