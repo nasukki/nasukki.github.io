@@ -179,7 +179,7 @@ input:disabled {
 /* Notice example of !important rule used on "background-image" property */
 body {
     background-color:black;
-    color: #333;
+    color: white;
     opacity: 0.98;
 
     background-image: none !important; /* Example 1 */
