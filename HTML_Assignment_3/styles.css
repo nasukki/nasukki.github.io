@@ -42,7 +42,7 @@ h2 {
 
 form {
 
-    color: black;
+    color: black !important;
     background-color: white;
     border: 1px solid #ccc;
     padding: 20px;
@@ -83,7 +83,7 @@ footer {
     padding: 15px;
     border-radius: 8px;
     width: 80%;
-    color: black;
+    color: black !important;
 
 }
 #main-title {
