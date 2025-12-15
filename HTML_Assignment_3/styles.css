@@ -75,7 +75,7 @@ footer {
     color: #555;
     opacity: 1;
 }
-/* Heading H1 style */
+/* Form section styling */
 .form-section {
 
     background-color: #aaaa;
@@ -96,6 +96,13 @@ footer {
     color: red;
     font-weight: bold;
 
+}
+a {
+  color: hotpink;
+}
+/* mouse over hover pseudo styling */
+a:hover {
+  font-weight: bold;
 }
 /* ID style selectors */
 
