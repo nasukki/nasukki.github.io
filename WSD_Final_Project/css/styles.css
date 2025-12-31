@@ -1,0 +1,642 @@
+/* ==========================================================================
+   SMOKING FINNS - MASTER CSS
+   ========================================================================== */
+
+   /* RESET TO DEFAULTS */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --clr-accent: #ff0044;
+    --clr-bg-main: #000000;
+    --clr-bg-outer: #0a0a0a;
+    --clr-text-muted: #aaaaaa;
+    
+    /* Layering logic */
+    --zi-navbar: 2000;
+    --zi-marquee: 2100;
+    --zi-offcanvas: 4000;
+}
+
+/* 1. BASE ARCHITECTURE */
+body {
+    background-color: var(--clr-bg-outer);
+    font-family: 'Inter', sans-serif;
+    color: white;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+.main-container {
+    margin-inline: auto;
+    background-color: var(--clr-bg-main);
+    min-height: 100vh;
+    box-shadow: 0 0 100px rgba(0,0,0,0.8);
+    border-inline: 1px solid #1a1a1a;
+    position: relative;
+    z-index: 1;
+    
+    /* LOGICAL SCALING: Width only increases as the screen gets smaller */
+    width: 100%;
+    max-width: 50%; 
+}
+
+@media (max-width: 1600px) { .main-container { max-width: 70%; } }
+@media (max-width: 1400px) { .main-container { max-width: 85%; } }
+@media (max-width: 1300px) { .main-container { max-width: 95%; } }
+@media (max-width: 1200px) { .main-container { max-width: 100%; border: none; } }
+
+/* 2. NAVIGATION & LOGO */
+
+/* --- NAVIGATION & DROPDOWNS --- */
+.navbar { background-color: rgba(0,0,0,0.95) !important; backdrop-filter: blur(15px); border-bottom: 1px solid #1a1a1a; }
+.nav-link { color: white !important; font-size: 0.75rem; letter-spacing: 2px; opacity: 0.8; transition: 0.3s; }
+.nav-link:hover { color: var(--accent) !important; opacity: 1; }
+
+@media (min-width: 992px) {
+    .dropdown:hover .dropdown-menu { display: block; opacity: 1; visibility: visible; transform: translateY(0); }
+    .dropdown-menu { display: block; opacity: 0; visibility: hidden; transform: translateY(10px); transition: all 0.3s ease; background-color: rgba(0, 0, 0, 0.95); border: 1px solid #222; border-radius: 0; padding: 1rem 0; }
+}
+
+.dropdown-item { font-family: 'Oswald', sans-serif; font-size: 0.7rem; letter-spacing: 2px; padding: 0.75rem 1.5rem; color: #888; text-transform: uppercase; transition: 0.2s; }
+.dropdown-item:hover { background-color: transparent; color: var(--accent); padding-left: 1.8rem; }
+/* -----------------------------------------------------------------------
+   NAVBAR PAGE INDICATOR
+   ----------------------------------------------------------------------- */
+.nav-page-indicator {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(0.6rem, 0.8vw, 0.75rem);
+    letter-spacing: 2px;
+    /* Keeps the indicator centered between logo and nav on wide screens */
+    flex: 1;
+    justify-content: center;
+}
+
+.indicator-label {
+    opacity: 0.5;
+    font-weight: 400;
+}
+
+.indicator-current {
+    /* Color handled by var(--clr-accent) in HTML */
+    border-bottom: 1px solid var(--clr-accent);
+    padding-bottom: 2px;
+}
+
+/* On very large screens, push it closer to the logo rather than dead center */
+@media (min-width: 1400px) {
+    .nav-page-indicator {
+        justify-content: flex-start;
+        padding-left: 3rem;
+    }
+}
+
+/* 3. SIDEBAR (OFFCANVAS) */
+.offcanvas {
+    z-index: var(--zi-offcanvas) !important;
+    background-color: #000 !important;
+    box-shadow: -20px 0 50px rgba(0,0,0,0.9);
+    width: 280px !important;
+}
+
+/* .navbar {
+    background-color: rgba(0, 0, 0, 0.95) !important;
+    backdrop-filter: blur(15px);
+    z-index: var(--zi-navbar) !important;
+    border-bottom: 1px solid #1a1a1a;
+}
+*/
+
+/* Container dimensions fixed to prevent mangling */
+.logo-box {
+    width: 250px;
+    height: 70px;
+    background: black;
+    display: flex;
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.logo-video-bg {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.logo-svg-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: black;
+    mix-blend-mode: multiply;
+    display: flex; align-items: center; justify-content: center;
+}
+
+/* NO FORCED WIDTH/HEIGHT: Let the SVG dictate its internal scale */
+.logo-svg-overlay svg {
+    height: 100%;
+    display: block;
+}
+/* -----------------------------------------------------------------------
+   5. HERO SECTION (Single Line Proportional Fix)
+   ----------------------------------------------------------------------- */
+
+.hero-top-content {
+    /* Ensures the title and subtitle behave as a single block */
+    display: inline-flex;
+    flex-direction: column;
+    width: fit-content;
+}
+
+.hero-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(2.2rem, 5vw, 4.5rem); 
+    font-weight: 700;
+    line-height: 0.9;
+    margin: 0;
+    /* Keeps it from wrapping */
+    white-space: nowrap; 
+}
+
+.hero-subtitle {
+    color: var(--clr-text-muted);
+    text-transform: uppercase;
+    /* Single line enforcement */
+    white-space: nowrap; 
+    
+    /* THE FIX: Smaller font size combined with wider letter spacing */
+    /* This makes the physical width of the long slogan match the short title */
+    font-size: clamp(0.55rem, 0.8vw, 0.75rem);
+    letter-spacing: 0.28em; /* Adjusted to "stretch" the text to the edges */
+    
+    margin-top: 8px;
+    width: 100%;
+    /* Aligning the pivot */
+    text-align: inherit; 
+}
+
+/* Specific Desktop override to ensure edges are flush */
+@media (min-width: 1200px) {
+    .hero-subtitle {
+        letter-spacing: 0.35em; /* Slightly wider on desktop for a perfect match */
+    }
+}
+.hero-section {
+    position: relative;
+    /* Reduced height for visual balance */
+    min-height: 40vh; 
+    height: auto; 
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: var(--clr-bg-main);
+}
+
+.hero-content-container {
+    position: relative;
+    z-index: 2;
+    /* Full height of the parent 40vh to allow space-between to work */
+    min-height: 40vh; 
+    /* Desktop padding is tighter to push content closer to the edges */
+    padding-top: 100px !important;
+    padding-bottom: 50px !important;
+}
+
+@media (max-width: 1199px) {
+    .hero-content-container {
+        /* On mobile, we use more vertical padding to prevent 
+           text from hitting the navbar/scrolling edge */
+        padding-top: 120px !important;
+        padding-bottom: 60px !important;
+        gap: 30px; /* Space between title and button when centered */
+    }
+}
+
+
+/* -----------------------------------------------------------------------
+   6. COMPONENTS (Ultra-Refined Small Button)
+   ----------------------------------------------------------------------- */
+
+.btn-primary-bbq {
+    display: inline-block;
+    background: var(--clr-accent);
+    color: white;
+    text-decoration: none;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    transition: var(--transition-base);
+
+    /* Clamped sizing to stay elegant in a 40vh space */
+    font-size: clamp(0.7rem, 1vw, 0.9rem);
+    padding: 8px clamp(15px, 2vw, 30px);
+    
+    border: none;
+    border-radius: 0;
+}
+
+.btn-primary-bbq:hover {
+    background: white;
+    color: black;
+    transform: translateY(-2px);
+}
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+
+.hero-video-wrap {
+    position: absolute;
+    inset: 0;
+    z-index: 0; /* Behind content but above box background */
+}
+
+.hero-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+@media (max-width: 768px) {
+    .hero-section { height: 40vh; }
+    .hero-bottom-content { width: 100%; text-align: center; }
+}
+
+/* 5. UTILITY */
+.announcement-wrapper {
+    background: var(--clr-accent);
+    padding-block: 10px;
+    padding-inline: 20px; /* Safe space on edges */
+    overflow: hidden;
+    white-space: nowrap;
+    z-index: var(--zi-marquee);
+}
+
+.scrolling-content {
+    display: flex;
+    width: max-content;
+    animation: marquee-scroll 40s linear infinite;
+}
+
+@keyframes marquee-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* -----------------------------------------------------------------------
+   8. CONTACT FORM STYLES
+   ----------------------------------------------------------------------- */
+.contact-form .form-control,
+.contact-form .form-select {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #333; /* Minimal underline look */
+    border-radius: 0;
+    color: white;
+    padding: 12px 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    transition: var(--transition-base);
+}
+
+/* Placeholder color styling */
+.contact-form .form-control::placeholder {
+    color: #444;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+}
+
+/* Form Focus State (The Red Glow) */
+.contact-form .form-control:focus,
+.contact-form .form-select:focus {
+    background-color: rgba(255, 0, 68, 0.03); /* Subtle accent tint */
+    border-color: var(--clr-accent);
+    box-shadow: none;
+    color: white;
+}
+
+/* Custom styling for the dropdown arrow in dark mode */
+.contact-form .form-select {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23ff0044' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+}
+
+/* Background fix for select options */
+.contact-form option {
+    background-color: #000;
+    color: white;
+}
+
+/* Labels */
+.form-label {
+    margin-bottom: 0;
+}
+
+/* Animation Utility */
+.reveal-line { opacity: 0; transform: translateY(30px); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1); }
+.reveal-line.active { opacity: 1; transform: translateY(0); }
+
+/* Team Section */
+.team-img-wrapper { border: 1px solid #1a1a1a; overflow: hidden; }
+.team-img-wrapper img { filter: grayscale(100%); transition: 0.6s ease; }
+.team-card:hover img { filter: grayscale(0%); transform: scale(1.03); }
+.section-title { font-family: 'Oswald'; font-size: 2.5rem; letter-spacing: 3px; }
+.title-underline { width: 60px; height: 3px; background-color: var(--clr-accent); margin-top: 15px; }
+.py-6 { padding-block: 5rem; }
+.text-accent { color: var(--clr-accent); }
+/* -----------------------------------------------------------------------
+   STAGGERED REVEAL UTILITIES
+   ----------------------------------------------------------------------- */
+
+/* This keeps the existing reveal-line logic but adds delays for a sequence */
+.reveal-line:nth-child(1) { transition-delay: 0.1s; }
+.reveal-line:nth-child(2) { transition-delay: 0.2s; }
+.reveal-line:nth-child(3) { transition-delay: 0.3s; }
+.reveal-line:nth-child(4) { transition-delay: 0.4s; }
+.reveal-line:nth-child(5) { transition-delay: 0.5s; }
+
+/* Contact Form Input Specific Styling */
+.contact-form .form-control,
+.contact-form .form-select {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #333;
+    border-radius: 0;
+    color: white;
+    padding: 12px 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    /* Ensure the transform from reveal-line doesn't conflict with focus transitions */
+    transition: border-color 0.3s ease, background-color 0.3s ease, opacity 1s ease, transform 1s ease;
+}
+
+.contact-form .form-control:focus {
+    outline: none;
+    border-bottom: 1px solid var(--clr-accent);
+    background-color: rgba(255, 0, 68, 0.05);
+}
+/* -----------------------------------------------------------------------
+   5. FORM & CONTACT LOGIC
+   ----------------------------------------------------------------------- */
+.contact-form .form-control, 
+.contact-form .form-select {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #333; /* Minimal underline aesthetic */
+    border-radius: 0;
+    color: white;
+    padding: 12px 0;
+    font-size: 0.9rem;
+    transition: var(--trans-base);
+}
+
+.contact-form .form-control:focus {
+    background-color: rgba(255, 0, 68, 0.05);
+    border-color: var(--clr-accent);
+    box-shadow: none;
+}
+
+/* Validation Feedback Styles */
+.contact-form.was-validated .form-control:invalid {
+    border-color: var(--clr-accent) !important;
+}
+
+.invalid-feedback {
+    color: var(--clr-accent);
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.success-box {
+    max-width: 400px;
+    margin: 2rem auto;
+    background: #050505;
+    border: 1px solid var(--clr-border);
+}
+/* -----------------------------------------------------------------------
+   8. GALLERY COMPONENT
+   ----------------------------------------------------------------------- */
+
+.gallery-item {
+    background: #000;
+    border: 1px solid var(--clr-border);
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.gallery-item img {
+    filter: grayscale(100%);
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+                filter 0.6s ease;
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.gallery-item:hover img {
+    filter: grayscale(0%);
+    transform: scale(1.05); /* Subtle zoom on hover */
+}
+
+/* Staggered reveal for gallery grid */
+.masonry-grid .reveal-line:nth-child(2) { transition-delay: 0.1s; }
+.masonry-grid .reveal-line:nth-child(3) { transition-delay: 0.2s; }
+/* -----------------------------------------------------------------------
+   8. FILTERABLE GRID & LIGHTBOX
+   ----------------------------------------------------------------------- */
+
+/* Sub-navigation styling */
+.gallery-filters {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+}
+
+.filter-btn {
+    background: transparent;
+    border: none;
+    color: var(--clr-text-muted);
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 5px 10px;
+    transition: var(--trans-base);
+    border-bottom: 2px solid transparent;
+}
+
+.filter-btn.active, .filter-btn:hover {
+    color: var(--clr-accent);
+    border-bottom: 2px solid var(--clr-accent);
+}
+
+/* Even Grid Item */
+.gallery-item {
+    aspect-ratio: 1 / 1; /* Forces perfect squares */
+    overflow: hidden;
+    background: #111;
+    border: 1px solid var(--clr-border);
+    cursor: pointer;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures image fills the square without stretching */
+    filter: grayscale(100%);
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease;
+}
+
+.gallery-item:hover img {
+    filter: grayscale(0%);
+    transform: scale(1.1);
+}
+
+/* Lightbox backdrop blur */
+.modal-backdrop.show {
+    backdrop-filter: blur(10px);
+    background-color: rgba(0,0,0,0.9);
+}
+/* -----------------------------------------------------------------------
+   9. RESULTS LOG STYLES
+   ----------------------------------------------------------------------- */
+
+.year-divider {
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 2px;
+}
+
+.result-entry {
+    transition: background-color 0.3s ease;
+}
+
+.result-entry:hover {
+    background-color: rgba(255, 255, 255, 0.02); /* Very subtle hover highlight */
+}
+
+.rank-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border: 1px solid #333;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.rank-badge.gold {
+    background-color: var(--clr-accent);
+    border-color: var(--clr-accent);
+    color: white;
+}
+
+/* Ensures text doesn't wrap awkwardly on small mobile */
+@media (max-width: 480px) {
+    .result-entry {
+        flex-direction: column;
+        align-items: flex-start !important;
+        gap: 10px;
+    }
+    .res-rank {
+        text-align: left !important;
+    }
+}
+
+/* -----------------------------------------------------------------------
+   10. SEASON STATS COMPONENT (Refined Spacing)
+   ----------------------------------------------------------------------- */
+.stats-overview {
+    background-color: #050505;
+    /* Increased margin to separate from the results log below */
+    margin-bottom: 8rem !important; 
+}
+
+/* Ensure the results log has its own internal breathing room */
+.results-log-wrap {
+    padding-top: 2rem;
+}
+
+/* Custom Spacing Utility for high-end editorial feel */
+.mb-8 {
+    margin-bottom: 8rem !important;
+}
+
+@media (max-width: 768px) {
+    .stats-overview {
+        margin-bottom: 5rem !important; /* Slightly tighter on mobile */
+    }
+    .mb-8 {
+        margin-bottom: 5rem !important;
+    }
+}
+/* -----------------------------------------------------------------------
+   11. FOOTER & SOCIAL ICONS
+   ----------------------------------------------------------------------- */
+.footer {
+    background-color: var(--clr-bg-main);
+}
+
+.footer-logo {
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 4px;
+    font-size: 1.2rem;
+}
+
+.social-icon {
+    color: white;
+    font-size: 1.4rem; /* Balanced size for the icons */
+    transition: var(--trans-base);
+    opacity: 0.6;
+    text-decoration: none;
+}
+
+.social-icon:hover {
+    color: var(--clr-accent); /* Turns red on hover */
+    opacity: 1;
+    transform: translateY(-3px); /* Subtle lift effect */
+}
+
+/* Specific adjustment for Font Awesome alignment */
+.fa-brands, .fa-solid {
+    display: inline-block;
+    vertical-align: middle;
+}
+/* -----------------------------------------------------------------------
+   12. CATERING CARDS
+   ----------------------------------------------------------------------- */
+.catering-card {
+    transition: var(--trans-base);
+    cursor: default;
+}
+
+.catering-card:hover {
+    border-color: var(--clr-accent) !important;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(255, 0, 68, 0.1);
+}
+
+.catering-card i.fs-2 {
+    display: block;
+}
+/* -----------------------------------------------------------------------
+   13. PENDING PAGE EXTRAS
+   ----------------------------------------------------------------------- */
+.fa-hourglass-start {
+    animation: pulse-red 2s infinite;
+}
+
+@keyframes pulse-red {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.7; }
+    100% { transform: scale(1); opacity: 1; }
+}
