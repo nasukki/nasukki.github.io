@@ -2,6 +2,14 @@
    SMOKING FINNS - MASTER CSS
    ========================================================================== */
 
+   /* RESET TO DEFAULTS */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 :root {
     --clr-accent: #ff0044;
     --clr-bg-main: #000000;
@@ -56,9 +64,11 @@ body {
 
 .dropdown-item { font-family: 'Oswald', sans-serif; font-size: 0.7rem; letter-spacing: 2px; padding: 0.75rem 1.5rem; color: #888; text-transform: uppercase; transition: 0.2s; }
 .dropdown-item:hover { background-color: transparent; color: var(--accent); padding-left: 1.8rem; }
+
 /* -----------------------------------------------------------------------
    NAVBAR PAGE INDICATOR
    ----------------------------------------------------------------------- */
+
 .nav-page-indicator {
     font-family: 'Oswald', sans-serif;
     font-size: clamp(0.6rem, 0.8vw, 0.75rem);
@@ -103,7 +113,6 @@ body {
 }
 */
 
-/* Container dimensions fixed to prevent mangling */
 .logo-box {
     width: 250px;
     height: 70px;
@@ -130,7 +139,7 @@ body {
     display: flex; align-items: center; justify-content: center;
 }
 
-/* NO FORCED WIDTH/HEIGHT: Let the SVG dictate its internal scale */
+
 .logo-svg-overlay svg {
     height: 100%;
     display: block;
@@ -161,12 +170,8 @@ body {
     text-transform: uppercase;
     /* Single line enforcement */
     white-space: nowrap; 
-    
-    /* THE FIX: Smaller font size combined with wider letter spacing */
-    /* This makes the physical width of the long slogan match the short title */
     font-size: clamp(0.55rem, 0.8vw, 0.75rem);
     letter-spacing: 0.28em; /* Adjusted to "stretch" the text to the edges */
-    
     margin-top: 8px;
     width: 100%;
     /* Aligning the pivot */
@@ -212,7 +217,7 @@ body {
 
 
 /* -----------------------------------------------------------------------
-   6. COMPONENTS (Ultra-Refined Small Button)
+   6. COMPONENTS
    ----------------------------------------------------------------------- */
 
 .btn-primary-bbq {
@@ -286,6 +291,7 @@ body {
 /* -----------------------------------------------------------------------
    8. CONTACT FORM STYLES
    ----------------------------------------------------------------------- */
+
 .contact-form .form-control,
 .contact-form .form-select {
     background-color: transparent;
@@ -343,11 +349,13 @@ body {
 .title-underline { width: 60px; height: 3px; background-color: var(--clr-accent); margin-top: 15px; }
 .py-6 { padding-block: 5rem; }
 .text-accent { color: var(--clr-accent); }
+
 /* -----------------------------------------------------------------------
    STAGGERED REVEAL UTILITIES
    ----------------------------------------------------------------------- */
 
 /* This keeps the existing reveal-line logic but adds delays for a sequence */
+
 .reveal-line:nth-child(1) { transition-delay: 0.1s; }
 .reveal-line:nth-child(2) { transition-delay: 0.2s; }
 .reveal-line:nth-child(3) { transition-delay: 0.3s; }
@@ -365,7 +373,6 @@ body {
     padding: 12px 0;
     font-family: 'Inter', sans-serif;
     font-size: 0.9rem;
-    /* Ensure the transform from reveal-line doesn't conflict with focus transitions */
     transition: border-color 0.3s ease, background-color 0.3s ease, opacity 1s ease, transform 1s ease;
 }
 
@@ -374,9 +381,11 @@ body {
     border-bottom: 1px solid var(--clr-accent);
     background-color: rgba(255, 0, 68, 0.05);
 }
+
 /* -----------------------------------------------------------------------
    5. FORM & CONTACT LOGIC
    ----------------------------------------------------------------------- */
+
 .contact-form .form-control, 
 .contact-form .form-select {
     background-color: transparent;
@@ -441,11 +450,13 @@ body {
 /* Staggered reveal for gallery grid */
 .masonry-grid .reveal-line:nth-child(2) { transition-delay: 0.1s; }
 .masonry-grid .reveal-line:nth-child(3) { transition-delay: 0.2s; }
+
 /* -----------------------------------------------------------------------
    8. FILTERABLE GRID & LIGHTBOX
    ----------------------------------------------------------------------- */
 
 /* Sub-navigation styling */
+
 .gallery-filters {
     display: flex;
     justify-content: center;
@@ -473,6 +484,7 @@ body {
 }
 
 /* Even Grid Item */
+
 .gallery-item {
     aspect-ratio: 1 / 1; /* Forces perfect squares */
     overflow: hidden;
@@ -499,6 +511,7 @@ body {
     backdrop-filter: blur(10px);
     background-color: rgba(0,0,0,0.9);
 }
+
 /* -----------------------------------------------------------------------
    9. RESULTS LOG STYLES
    ----------------------------------------------------------------------- */
@@ -547,6 +560,7 @@ body {
 /* -----------------------------------------------------------------------
    10. SEASON STATS COMPONENT (Refined Spacing)
    ----------------------------------------------------------------------- */
+
 .stats-overview {
     background-color: #050505;
     /* Increased margin to separate from the results log below */
@@ -571,9 +585,11 @@ body {
         margin-bottom: 5rem !important;
     }
 }
+
 /* -----------------------------------------------------------------------
    11. FOOTER & SOCIAL ICONS
    ----------------------------------------------------------------------- */
+
 .footer {
     background-color: var(--clr-bg-main);
 }
@@ -603,9 +619,11 @@ body {
     display: inline-block;
     vertical-align: middle;
 }
+
 /* -----------------------------------------------------------------------
    12. CATERING CARDS
    ----------------------------------------------------------------------- */
+
 .catering-card {
     transition: var(--trans-base);
     cursor: default;
@@ -620,9 +638,11 @@ body {
 .catering-card i.fs-2 {
     display: block;
 }
+
 /* -----------------------------------------------------------------------
    13. PENDING PAGE EXTRAS
    ----------------------------------------------------------------------- */
+
 .fa-hourglass-start {
     animation: pulse-red 2s infinite;
 }
@@ -631,4 +651,14 @@ body {
     0% { transform: scale(1); opacity: 1; }
     50% { transform: scale(1.1); opacity: 0.7; }
     100% { transform: scale(1); opacity: 1; }
+}
+/* Fix for the split dropdown button alignment in the mobile menu */
+.offcanvas .dropdown-toggle-split {
+    border-left: 1px solid rgba(255,255,255,0.1) !important;
+}
+
+.offcanvas .dropdown-menu {
+    border-radius: 0;
+    /* Indents sub-menu items for better visual depth */
+    padding-left: 1rem;
 }
