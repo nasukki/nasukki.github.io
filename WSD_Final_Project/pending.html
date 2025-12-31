@@ -19,42 +19,69 @@
 </head>
 <body class="bg-outer-space text-white">
 
-    <div class="offcanvas offcanvas-end bg-black text-white border-start border-secondary" tabindex="-1" id="sidebarMenu">
+    <div class="offcanvas offcanvas-end bg-black text-white border-start border-secondary" 
+         tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
+        
         <div class="offcanvas-header border-bottom border-secondary">
-            <h5 class="offcanvas-title text-uppercase fw-bold text-accent">Menu</h5>
-            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+            <h5 class="offcanvas-title text-uppercase fw-bold text-accent" id="sidebarMenuLabel">Menu</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close menu"></button>
         </div>
+
         <div class="offcanvas-body p-0">
-            <ul class="navbar-nav ms-auto text-uppercase fw-bold">
-                <li class="nav-item border-bottom border-dark"><a class="nav-link px-4 py-3" href="#story">Story</a></li>
-                <li class="nav-item dropdown border-bottom border-dark">
-                    <a class="nav-link dropdown-toggle px-4 py-3" href="#" role="button" data-bs-toggle="dropdown">Results</a>
-                    <ul class="dropdown-menu dropdown-menu-dark">
-                        <li><a class="dropdown-item" href="results.html">Current Season</a></li>
-                        <li><a class="dropdown-item" href="results.html">2025 Season</a></li>
-                        <li><a class="dropdown-item" href="results.html">Archive</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item dropdown border-bottom border-dark">
-                    <a class="nav-link dropdown-toggle px-4 py-3" href="gallery.html" role="button" data-bs-toggle="dropdown">Media</a>
-                    <ul class="dropdown-menu dropdown-menu-dark">
-                        <li><a class="dropdown-item" href="gallery.html">Gallery</a></li>
-                        <li><a class="dropdown-item" href="pending.html">In the Press</a></li>
-                        <li><a class="dropdown-item" href="pending.html">For the Press</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item dropdown border-bottom border-dark">
-                    <a class="nav-link dropdown-toggle px-4 py-3" href="pending.html" role="button" data-bs-toggle="dropdown">Reviews</a>
-                    <ul class="dropdown-menu dropdown-menu-dark">
-                        <li><a class="dropdown-item" href="pending.html">Rubs</a></li>
-                        <li><a class="dropdown-item" href="pending.html">Sauces</a></li>
-                        <li><a class="dropdown-item" href="pending.html">Accessories</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item border-bottom border-dark"><a class="nav-link px-4 py-3" href="catering.html">Catering</a></li>
-            </ul>
+            <nav aria-label="Mobile navigation">
+                <ul class="navbar-nav ms-auto text-uppercase fw-bold">
+                    
+                    <li class="nav-item border-bottom border-dark">
+                        <a class="nav-link px-4 py-3" href="#story" data-bs-dismiss="offcanvas" aria-label="Our Story">Story</a>
+                    </li>
+
+                    <li class="nav-item dropdown border-bottom border-dark d-flex flex-wrap align-items-center">
+                        <a class="nav-link px-4 py-3 flex-grow-1" href="results.html" aria-label="Go to Results Page">Results</a>
+                        <button type="button" class="btn dropdown-toggle dropdown-toggle-split text-white px-4 py-3 border-0" 
+                                data-bs-toggle="dropdown" aria-expanded="false" aria-label="Toggle Results Sub-menu">
+                            <span class="visually-hidden">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-dark w-100 position-static border-0 m-0 shadow-none bg-dark-subtle">
+                            <li><a class="dropdown-item py-2 px-5" href="results.html">Current Season</a></li>
+                            <li><a class="dropdown-item py-2 px-5" href="results.html">2025 Season</a></li>
+                            <li><a class="dropdown-item py-2 px-5" href="results.html">Archive</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown border-bottom border-dark d-flex flex-wrap align-items-center">
+                        <a class="nav-link px-4 py-3 flex-grow-1" href="gallery.html" aria-label="Go to Media Gallery">Media</a>
+                        <button type="button" class="btn dropdown-toggle dropdown-toggle-split text-white px-4 py-3 border-0" 
+                                data-bs-toggle="dropdown" aria-expanded="false" aria-label="Toggle Media Sub-menu">
+                            <span class="visually-hidden">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-dark w-100 position-static border-0 m-0 shadow-none bg-dark-subtle">
+                            <li><a class="dropdown-item py-2 px-5" href="gallery.html">Gallery</a></li>
+                            <li><a class="dropdown-item py-2 px-5" href="pending.html">In the Press</a></li>
+                            <li><a class="dropdown-item py-2 px-5" href="pending.html">For the Press</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown border-bottom border-dark d-flex flex-wrap align-items-center">
+                        <a class="nav-link px-4 py-3 flex-grow-1" href="pending.html" aria-label="Go to Reviews Page">Reviews</a>
+                        <button type="button" class="btn dropdown-toggle dropdown-toggle-split text-white px-4 py-3 border-0" 
+                                data-bs-toggle="dropdown" aria-expanded="false" aria-label="Toggle Reviews Sub-menu">
+                            <span class="visually-hidden">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-dark w-100 position-static border-0 m-0 shadow-none bg-dark-subtle">
+                            <li><a class="dropdown-item py-2 px-5" href="pending.html">Rubs</a></li>
+                            <li><a class="dropdown-item py-2 px-5" href="pending.html">Sauces</a></li>
+                            <li><a class="dropdown-item py-2 px-5" href="pending.html">Accessories</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item border-bottom border-dark">
+                        <a class="nav-link px-4 py-3" href="catering.html" aria-label="Catering Services">Catering</a>
+                    </li>
+                </ul>
+            </nav>
         </div>
     </div>
+
 
     <div class="main-container mx-auto">
         
