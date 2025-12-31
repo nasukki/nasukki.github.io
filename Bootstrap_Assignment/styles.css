@@ -1,0 +1,44 @@
+/* Custom CSS for Portfolio
+    This file overrides some Bootstrap defaults and adds unique animations.
+*/
+
+/* 1. Global Font Adjustment */
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* 2. Hero Section: Profile Image Styling */
+.profile-img {
+    border: 5px solid white; /* Adds a clean border */
+    transition: transform 0.3s ease-in-out; /* Smooth animation setup */
+    max-width: 350px;
+}
+
+/* Hover Effect: Zooms the image slightly */
+.profile-img:hover {
+    transform: scale(1.05);
+}
+
+/* 3. Projects Section: Card Styling */
+.project-card {
+    border: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover Effect: Lifts the card up and adds shadow */
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 1rem 3rem rgba(0,0,0,.175)!important;
+}
+
+/* 4. Navbar Tweaks */
+.navbar-brand {
+    letter-spacing: 1px;
+    font-size: 1.5rem;
+}
+
+/* 5. Custom Progress Bar Corners */
+.progress {
+    border-radius: 20px;
+    background-color: #e9ecef;
+}
